@@ -1,0 +1,130 @@
+
+.ListNewMusic{
+    margin-top: $margin-top-page !important;
+    margin-bottom: 100px !important;
+    .text-danger:hover{
+        cursor: pointer;
+    }
+    .list-group{
+        .list-group-item{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid $purple;
+            img{
+                border-radius: 10px;
+                width: 45px;
+                height: 45px;
+                margin-left: 25px;
+            }
+            img:hover{
+                cursor: pointer;
+            }
+            .img{
+                border-radius: 10px;
+                width: 45px;
+                height: 45px;
+                position: absolute;
+                left: 26px;
+                top: 16px;
+                opacity: 0;
+                i{
+                    position: absolute;
+                    top: 2px;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    text-align: center;
+                }
+            }
+            .img:hover{cursor: pointer;}
+            span{
+                margin-left: 20px;
+                margin-top: 5px;
+            }
+            .small{
+                font-size: 11px;
+                color: $opacity-gray-8;
+                margin-top: 5px;
+            }
+            i{
+                margin-right: 30px;
+                font-size: 15px;
+                margin-top: 20px;
+                color: $opacity-gray-8;
+            }
+            i:hover{
+                cursor: pointer;
+            }
+            .red{
+                color: $danger;
+            }
+        }
+        .list-group-item:hover{
+            background-color:  rgba(255,255,255, .1);
+            .img{
+                opacity: 1;
+            }
+            img{
+                filter:brightness(50%);
+            }
+            i, .small{
+                color: white;
+            }
+        }
+    }
+}
+
+
+
+/////////////////////////////////////////animation wave ///////////////////////////////
+.bars {
+    height: 30px;
+    width: 35px;
+    position: absolute;
+    left: 33px;
+    top: 22px;
+    display: none;
+}
+.bar {
+    background: $danger;
+    bottom: 1px;
+    height: 3px;
+    position: absolute;
+    width: 3px;      
+    animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+    0% {
+       opacity: .35;
+        height: 3px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 28px;        
+    }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
+.bar:nth-child(2)  { left: 5px; animation-duration: 433ms; }
+.bar:nth-child(3)  { left: 9px; animation-duration: 407ms; }
+.bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
+.bar:nth-child(5)  { left: 17px; animation-duration: 400ms; }
+.bar:nth-child(6)  { left: 21px; animation-duration: 427ms; }
+.bar:nth-child(7)  { left: 25px; animation-duration: 441ms; }
+.bar:nth-child(8)  { left: 29px; animation-duration: 419ms; }
+.bar:nth-child(9)  { left: 33px; animation-duration: 487ms; }
+.bar:nth-child(10) { left: 37px; animation-duration: 442ms; }
+
+.animation{
+    .bars{
+        display: block;
+    }
+    img{
+        filter:brightness(50%);
+    }
+}
+//////
+.run{
+    color: #E20074;
+}

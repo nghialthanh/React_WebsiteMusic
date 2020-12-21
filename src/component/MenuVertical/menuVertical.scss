@@ -1,0 +1,196 @@
+
+$width-navbar: 16vw;
+$height-magrin:100px;
+@media screen and (max-width: 991px){
+
+}
+  
+@media screen and (min-width: 992px){
+
+}
+  
+@media screen and (max-width: 768px){
+
+}
+  
+@media screen and (max-width: 576px){
+
+}
+
+.navbar-vertical{
+    position: fixed;
+    background-image: url('../../assets/img/background-group-2-1.jpg') !important;
+    align-items: flex-start !important;
+    width: $width-navbar;
+    height: 100vh;
+    padding: 0 !important;
+    flex-flow: column !important;
+    .navbar-brand{
+        width: $width-navbar;
+        overflow: hidden;
+        height: $height-magrin;
+        float: left;
+        text-align: center;
+    }
+    .navbar-nav{
+        width: 100%;
+        // margin-left: calc(-$width-navbar+$height-magrin);
+        .nav-item{
+            //width: calc($width-navbar-10px);
+            height: 50px;
+            .nav-link{
+                width: 100%;
+                padding-top: 13px;
+                i{
+                    margin-left: 10px;
+                }
+                span{
+                    margin-left: 10px;
+                }
+            }
+        }
+        .nav-item:hover{
+            color: $danger !important;
+            i{
+                color: $danger;
+            }
+            span{
+                color: $danger;
+            }
+        }
+        .active-nav-link{
+          border-left: 5px solid $indigo;
+          background-color: $opacity-gray-3;
+        }
+    }
+}
+
+///////////////////////////////////////////HeadPhone///////////////////////////////////////
+.centered {
+    position: absolute;
+    margin: auto;
+    top:0; bottom:0; left:0; right:0;
+  } 
+  
+  .face {
+    width: calc(150px*0.3);
+    height: calc(150px*0.3);
+    background-color: #ffffff;
+    border-radius: 50%;
+    -webkit-mask: url("../../assets/img/facemusic.png") top left / cover;
+    mask: url("../../assets/img/facemusic.png") top left / cover;
+    opacity: 0.5;
+  }
+  
+  .back {
+    width: calc(160px*0.3);//160
+    height: calc(160px*0.3);
+    border-radius: 50%;
+    background: -webkit-linear-gradient(to top, #FF694C 0%, #F15378 40%, #E053D5 50%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
+    background: linear-gradient(to top, #FF694C 0%, #F15378 30%, #E053D5 40%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
+    
+    -webkit-filter: saturate(0.5);
+    filter: saturate(0.5);
+    -webkit-transform: scale(1) rotate(-25deg);
+    transform: scale(1) rotate(-25deg);
+    -webkit-animation: spin 0.3s infinite linear alternate;
+    animation: spin 0.3s infinite linear alternate;
+  }
+  
+  .headphones {
+    width: calc(320px*0.3);//320
+    height: calc(120px*0.3);//120
+    -webkit-animation: bounce 0.3s linear infinite alternate;
+    animation: bounce 0.3s linear infinite alternate;
+  }
+  
+  .earmuff {
+    float: left;
+    width: calc(20px*0.3);//20
+    height: calc(120px*0.3);//120
+    background: #FA7B57;
+    border-radius: 50% 3px 3px 50%;
+    border-right: #B54BEB solid 6px;
+    
+  }
+  .earmuff:nth-child(2){
+    float: right;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  
+  .band {
+    width: calc(320px*0.3);//320
+    height: calc(300px*0.3);//300
+    border-radius: 50%;
+    background-color: trnasparent;
+    border-top: #B54BEB solid calc(12px*0.3);
+    z-index: -99;
+  }
+  
+  .music {
+    width: calc(450px*0.3);//450
+    height: calc(50px*0.3);//50
+  }
+  .group1{
+    float: left;
+  }
+  .group2{
+    float: right;
+    -webkit-transform: rotate(180deg);
+  }
+  .wave {
+    display: inline-block;
+    width: calc(10px*0.3);//10
+    height: calc(50px*0.3);//50
+    opacity: 0.2;
+    background-color: #E053D5;
+    -webkit-animation: wave 0.3s 0.2s linear infinite alternate;
+    animation: wave 0.3s 0.2s linear infinite alternate;
+  }
+  .wave:nth-child(2) {
+    -webkit-animation: wave 0.3s 0.1s linear infinite alternate;
+    animation: wave 0.3s 0.1s linear infinite alternate;
+  }
+  .wave:nth-child(3) {
+    -webkit-animation: wave 0.3s linear infinite alternate;
+    animation: wave 0.3s linear infinite alternate;
+  }
+  
+  @keyframes spin {
+    to {
+      -webkit-filter: saturate(1);
+      -webkit-transform: scale(1.05) rotate(-25deg);
+    }
+  }
+  
+  @-webkit-keyframes spin {
+    to {
+      -webkit-filter: saturate(1);
+      -webkit-transform: scale(1.05) rotate(-25deg);
+    }
+  }
+  
+  @keyframes bounce {
+    to {
+      -webkit-transform: scale(1.05);
+    }
+  }
+  
+  @-webkit-keyframes bounce {
+    to {
+      -webkit-transform: scale(1.05);
+    }
+  }
+  @keyframes wave {
+    to {
+      opacity: 1;
+      -webkit-transform: scaleY(2);
+    }
+  }
+  @-webkit-keyframes wave {
+    to {
+      opacity: 1;
+      -webkit-transform: scaleY(2);
+    }
+  }

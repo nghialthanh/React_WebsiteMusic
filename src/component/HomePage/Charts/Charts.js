@@ -16,11 +16,12 @@ import "./Charts.scss";
 import dataAudio from "../dataAudio";
 
 function Charts(props) {
-    const handleSetAudio = (e) =>{
-        props.handleSetAudioPlay(e);
+    const handleSetAudio = (e,index) =>{
+        props.handleSetAudioPlay(e,index);
     }
     const renderTopAudio = () =>{
-        return dataAudio.map(e => {
+        return dataAudio.map((e,index) => {
+            if(index<=2)
                 return (
                     <Col md="4">
                         <Card className="card-coin card-plain">
@@ -41,7 +42,7 @@ function Charts(props) {
                                 </Row>
                                 <Row>
                                     <ListGroup>
-                                        <ListGroupItem>{e.view} Viewer</ListGroupItem>
+                                        <ListGroupItem>{e.view}k Viewer</ListGroupItem>
                                     </ListGroup>
                                 </Row>
                             </CardBody>
@@ -49,7 +50,7 @@ function Charts(props) {
                                 <Button 
                                     className="btn-simple" 
                                     color="primary"
-                                    onClick={() => handleSetAudio(e)}>
+                                    onClick={() => handleSetAudio(dataAudio,index)}>
                                     Play
                                 </Button>
                             </CardFooter>

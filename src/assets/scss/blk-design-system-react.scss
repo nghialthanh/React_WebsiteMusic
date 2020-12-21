@@ -116,3 +116,10 @@ $asset-base-path: '../../../../assets' !default;
 // React Differences
 
 @import "blk-design-system-react/react/react-differences";
+
+
+// repeat /////////
+
+@import "../../component/MenuVertical/menuVertical.scss";
+@import "../../component/MenuHorizontal/MenuHorizontal.scss";
+@import "../../component/NewMusic/NewMusic.scss";

@@ -5,15 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./assets/scss/blk-design-system-react.scss?v=1.2.0";
 import "./assets/scss/style.scss";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.Fragment>
     <BrowserRouter>
-      <Switch>
-      <Route path="/components" render={(props) => <App {...props} />} />
-      <Redirect from="/" to="/components" />
-      </Switch>
+      <App />
     </BrowserRouter>
   </React.Fragment>,
   document.getElementById('root')

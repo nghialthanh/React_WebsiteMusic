@@ -1,31 +1,50 @@
 import React,{useState} from "react";
-import MenuHeader from "./component/Menu/menu";
+import MenuVertical from "./component/MenuVertical/menuVertical";
+import PlayAudio from "./component/AudioPlay/PlayAudio";
+import NewMusic from "./component/NewMusic/NewMusic";
+import { Route, Switch,Redirect } from "react-router-dom";
 import HomePage from "./component/HomePage/HomePage";
-import Charts from "./component/HomePage/Charts/Charts";
-import PlayAudio from "./component/HomePage/PlayAudio";
-import Fire from "./component/HomePage/FireMusic/FireMusic";
-import dataAudio from "./component/HomePage/dataAudio";
-import Footer from "./component/HomePage/Footer";
 function App() {
-	const [AudioPlay,setAudioPlay] = useState(dataAudio[0]);
-	const handleSetAudioPlay = (e) =>{
+	const [AudioPlay,setAudioPlay] = useState();
+	const [showAudioPlay,setshowAudioPlay] = useState(true);
+	//////////////index music in list////////////////////
+	const [indexMusic,setIndexMusic] = useState(0);
+	const handleSetAudioPlay = (e,index) =>{
+		setIndexMusic(index);
 		setAudioPlay(e);
+		setshowAudioPlay(false);
+	}
+	///////////////// Set Wave Animation Img in List ////////////////// 
+	const [index,setindex] = useState(-1);
+	const handleSetAnimationImgList = (index)=>{
+		setindex(index);
 	}
   return (
 	<div className="index-page">
-		<MenuHeader/>
+		<MenuVertical
+			index={index}
+			handleSetAudioPlay={handleSetAudioPlay}
+		/>
+		
 		<PlayAudio
-			AudioPlay={AudioPlay}/>
-		<div className="wrapper" id="home">
-			<HomePage/>
-			<div className="main">
-          		<Charts
-				  key={1}
-				  handleSetAudioPlay={handleSetAudioPlay}/>
-				<Fire/>
-        	</div>
-			<Footer/>
-		</div>
+			AudioPlay={AudioPlay}
+			indexMusic={indexMusic}
+			showAudioPlay={showAudioPlay}
+			handleSetAnimationImgList={handleSetAnimationImgList}/>
+			
+		<Switch>
+          
+          <Route path="/KhamPha" component={() => <HomePage
+                                                  handleSetAudioPlay={handleSetAudioPlay}                              
+                                                />
+          }/>
+          <Route path="/MoiPhatHanh" component={() => <NewMusic
+                                                  index={index}
+												  handleSetAudioPlay={handleSetAudioPlay}
+                                                />
+          }/>
+		  <Redirect from="/" to="/KhamPha" />
+        </Switch>
 	</div>
   );
 }

@@ -1,5 +1,9 @@
 // style for the landing page
 .index-page {
+    .wrapper{
+      width: 84vw;
+      float: right;
+    }
     .page-header {
         height: 100vh;
 
@@ -555,7 +559,7 @@
 .landing-page,
 .profile-page,
 .register-page{
-  background-image: url($asset-base-path + "/img/dots.png");
+  background-image: url($asset-base-path + "/img/night-sky.png");
   background-size: contain;
 }
 

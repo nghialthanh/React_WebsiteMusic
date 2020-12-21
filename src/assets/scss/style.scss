@@ -1,200 +1,108 @@
-
-
-///////////////////////////////////////////HeadPhone///////////////////////////////////////
-.centered {
-    position: absolute;
-    margin: auto;
-    top:0; bottom:0; left:0; right:0;
-  } 
-  
-  .face {
-    width: 195px;//150
-    height: 195px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    -webkit-mask: url("../img/facemusic.png") top left / cover;
-    mask: url("../img/facemusic.png") top left / cover;
-    opacity: 0.5;
-  }
-  
-  .back {
-    width: 208px;//160
-    height: 208px;
-    border-radius: 50%;
-    background: -webkit-linear-gradient(to top, #FF694C 0%, #F15378 40%, #E053D5 50%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
-    background: linear-gradient(to top, #FF694C 0%, #F15378 30%, #E053D5 40%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
-    
-    -webkit-filter: saturate(0.5);
-    filter: saturate(0.5);
-    -webkit-transform: scale(1) rotate(-25deg);
-    transform: scale(1) rotate(-25deg);
-    -webkit-animation: spin 0.3s infinite linear alternate;
-    animation: spin 0.3s infinite linear alternate;
-  }
-  
-  .headphones {
-    width: 416px;//320
-    height: 156px;//120
-    -webkit-animation: bounce 0.3s linear infinite alternate;
-    animation: bounce 0.3s linear infinite alternate;
-  }
-  
-  .earmuff {
-    float: left;
-    width: 26px;//20
-    height: 156px;//120
-    background: #FA7B57;
-    border-radius: 50% 10px 10px 50%;
-    border-right: #B54BEB solid 20px;
-    
-  }
-  .earmuff:nth-child(2){
-    float: right;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  
-  .band {
-    width: 416px;//320
-    height: 390px;//300
-    border-radius: 50%;
-    background-color: trnasparent;
-    border-top: #B54BEB solid 40px;
-    z-index: -99;
-  }
-  
-  .music {
-    width: 585px;//450
-    height: 65px;//50
-  }
-  .group1{
-    float: left;
-  }
-  .group2{
-    float: right;
-    -webkit-transform: rotate(180deg);
-  }
-  .wave {
-    display: inline-block;
-    width: 13px;//10
-    height: 65px;//50
-    opacity: 0.2;
-    background-color: #E053D5;
-    -webkit-animation: wave 0.3s 0.2s linear infinite alternate;
-    animation: wave 0.3s 0.2s linear infinite alternate;
-  }
-  .wave:nth-child(2) {
-    -webkit-animation: wave 0.3s 0.1s linear infinite alternate;
-    animation: wave 0.3s 0.1s linear infinite alternate;
-  }
-  .wave:nth-child(3) {
-    -webkit-animation: wave 0.3s linear infinite alternate;
-    animation: wave 0.3s linear infinite alternate;
-  }
-  
-  @keyframes spin {
-    to {
-      -webkit-filter: saturate(1);
-      -webkit-transform: scale(1.05) rotate(-25deg);
-    }
-  }
-  
-  @-webkit-keyframes spin {
-    to {
-      -webkit-filter: saturate(1);
-      -webkit-transform: scale(1.05) rotate(-25deg);
-    }
-  }
-  
-  @keyframes bounce {
-    to {
-      -webkit-transform: scale(1.05);
-    }
-  }
-  
-  @-webkit-keyframes bounce {
-    to {
-      -webkit-transform: scale(1.05);
-    }
-  }
-  @keyframes wave {
-    to {
-      opacity: 1;
-      -webkit-transform: scaleY(2);
-    }
-  }
-  @-webkit-keyframes wave {
-    to {
-      opacity: 1;
-      -webkit-transform: scaleY(2);
-    }
-  }
+//////////////////////////////////////component MAIN/////////////////////////////////
+.wrapper{
+  background-image: url('../img/background-group-1-2.jpg');
+  background-repeat: no-repeat;
+}
 
   /////////////////////////////////AudioPlay/////////////////////////////////////////////
-  @keyframes body {
-    0% {width: 90px;}
-    100% {width: 350px;}
-  }
   @keyframes bodyaudio {
     0% {width: 0px;}
     100% {width: 300px;}
   }
-  @keyframes pName {
-    0% {width: 0px;}
-    100% {width: 280px;height: 40px;}
+  @keyframes spin2 {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
   }
   .AudioPlay{
     position: fixed;
     z-index: 1000;
-    top:40%;
-    width: 90px;
-    height: 90px;
+    left:20%;
+    background-image: url("../img/night-sky.png");
+    bottom: 0;
+    width: 930px;
+    height: 60px;
     border-left: none;
-    .Icon{
-      height: 90px;
-      i{
-        font-size: 50px;
-        color: #ffffff;
-        opacity: 0.7;
-        margin-left: 5px;
-        margin-top: 20px;
-      }
-    }
-    .bodyaudio{
-      overflow: hidden;
-      display: none;
+    border-radius: 20px 20px 0 0;
+    img{
+      width: 48px;
+      height: 48px;
+      margin-top: 4px;
+      margin-left: 6px;
+      margin-right: 10px;
+      border-radius: 50%;
       float: left;
     }
-    .NameAudio{
-      margin-left: 10px;
-      width: 280px;
-      display: none;
-      p{
-        height: 20px;
-        overflow: hidden;
-        text-align: center;
-      }
-    }
-  }
-  .AudioPlay:hover{
-    animation-name: body;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    .NameAudio{
-      display: inline-block;
-      p{
-        animation-name: pName;
-        animation-duration: 1s;
-        animation-fill-mode: both;
-      }
+    img[spinImg='1']{
+      animation-name: spin2;
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+      animation-timing-function: linear; 
     }
     .bodyaudio{
-      display: block;
-      animation-name: bodyaudio;
-      animation-duration: 1s;
-      animation-fill-mode: both;
-      background: linear-gradient(45deg, #FF694C 0%, #F15378 30%, #E053D5 40%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
-      border-radius: 0 20px 20px 0;
+      width: 650px;
+      overflow: hidden;
+      background-image: url("../img/night-sky.png");
+      color: white;
+      
+      //background: linear-gradient(45deg, #FF694C 0%, #F15378 30%, #E053D5 40%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
     }
-    
+    .NameAudio{
+      margin-top: 8px;
+      width: 200px;
+      float: left;
+      marquee{
+        height: 20px;
+        overflow: hidden;
+        text-align: left;
+        font-size: small;
+      }
+    }
   }
+/////////////////////////////////////////gallery image////////////////////////////////////
+.page-header {
+  height: 450px !important;
+  .react-3d-carousel{
+    margin-top: 100px !important;
+    img{
+      width: 680px;
+      height: 340px;
+    }
+    .preactive{
+      .slider-single-content{
+        left: -100px !important;
+      }
+    }
+    .proactive{
+      .slider-single-content{
+        left: 100px !important;
+      }
+    }
+    .slider-right{
+      div{
+        border-radius: 50%;
+        border: none;
+      }
+      div:hover{
+        background-color: #ccd3bf;
+        opacity: 0.3;
+      }
+    }
+    .slider-left{
+      div{
+        border-radius: 50%;
+        border: none;
+      }
+      div:hover{
+        background-color: #ccd3bf;
+        opacity: 0.3;
+
+      }
+    }
+  }
+  
+}
+///////////////////////////////////////////HeadPhone///////////////////////////////////////
