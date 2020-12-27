@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import "./assets/scss/blk-design-system-react.scss?v=1.2.0";
 import "./assets/scss/style.scss";
 import { BrowserRouter } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import store from "./store";
 ReactDOM.render(
-  <React.Fragment>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.Fragment>,
+  <Provider store={store}>
+    <React.Fragment>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.Fragment>
+  </Provider>,
   document.getElementById('root')
 );
 

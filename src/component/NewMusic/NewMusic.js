@@ -8,23 +8,39 @@ import {
     Row,
     Col, } from "reactstrap";
 import dataAudio from "../HomePage/dataAudio";
+import { useDispatch, useSelector } from "react-redux";
+import { setMusictoAudio , setindexMusictoAudio, setshowAudioPlay} from '../../actions/ListMusic';
+
 function NewMusic(props) {
   const [_colorI, _setColorI] = useState("far fa-heart");
   const [_Index,_setIndex] = useState(-1);
+  const listmusic = useSelector(state => state.ListMusic.ListMusic);
+  const dispatch = useDispatch();
+  
+
   useEffect(() => {
+    console.log(11111111111);
+    const action = setMusictoAudio(dataAudio);
+    dispatch(action);
     if(props.index!==-1)
       handleSetAudio(null,props.index);
-  });
+  },[props.index],[dataAudio]);
+
   //////////////////// set wave Animation for IMg
   const handleSetAudio = (e,index) =>{
-    if(index!==_Index){
-      document.getElementsByClassName('list-group-item')[index].classList.add('animation');
-      if(_Index!==-1)
+    document.getElementsByClassName('list-group-item')[index].classList.add('animation');
+    if(_Index!==-1)
       document.getElementsByClassName('list-group-item')[_Index].classList.remove('animation');
-      _setIndex(index);
+    _setIndex(index); 
+    if(e!==null){
+        const action3 = setshowAudioPlay(false);
+        const action = setMusictoAudio(e)
+        const action2 = setindexMusictoAudio(index);
+        dispatch(action);
+        dispatch(action2);
+        dispatch(action3)
+        
     }
-    if(e!==null)
-        props.handleSetAudioPlay(e,index);
   }
   const handlesetEleI = () =>{
     if (_colorI === "far fa-heart")
@@ -33,9 +49,9 @@ function NewMusic(props) {
       _setColorI("far fa-heart")
   }
   const renderList = () => {
-    return dataAudio.map((e,index) => {
+    return listmusic.map((e,index) => {
       return(
-            <ListGroupItem>
+            <ListGroupItem key={e.id}>
               <Row>
                 <img src={e.image} onClick={() => handleSetAudio(dataAudio,index)}  alt="Music"/>
                 <div className="img" onClick={() => handleSetAudio(dataAudio,index)}>

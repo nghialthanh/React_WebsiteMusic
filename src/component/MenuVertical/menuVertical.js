@@ -12,8 +12,7 @@ function MenuVertical(props) {
     return(
         <Navbar className="fixed-bottom navbar-vertical" color-on-scroll="100" expand="md" >
                     <NavbarBrand to="/" tag={Link} id="navbar-brand">
-                        {/* <span>ÂM NHẠC• </span><br/>
-                        Là Cuộc Sống */}
+                        
                         <div className="centered back"></div>
                             <div className="centered face"></div>
 
@@ -34,7 +33,7 @@ function MenuVertical(props) {
                                     <div className="wave"></div>
                                 </div>
                             </div>
-                        
+                            {/* <span>ÂM NHẠC• </span>Là Cuộc Sống */}
                     </NavbarBrand>
                 
                     <Nav navbar vertical>
@@ -45,20 +44,20 @@ function MenuVertical(props) {
                             </NavLink>
                         </NavItem>
                         <NavItem className="p-0">
-                            <NavLink exact to="/" tag={RRNavLink} activeClassName="active-nav-link">
+                            <NavLink  >
                                 <i className="fas fa-chart-line" />
                                 <span>Bảng Xếp Hạng</span>
                             </NavLink>
                         </NavItem>
                         <NavItem className="p-0">
-                            <NavLink href="#" exact to="/" tag={RRNavLink} activeClassName="active-nav-link">
+                            <NavLink   >
                                 <i className="far fa-play-circle" />
                                 <span>Music Video</span>
                             </NavLink>
                         </NavItem>
                         <NavItem className="p-0">
                             {/* <NavLink  exact to={{pathname:"/KhamPha",state: {index: props.index,handleSetAudioPlay: props.handleSetAudioPlay}}} tag={RRNavLink} activeClassName="active-nav-link" > */}
-                            <NavLink  exact to="/KhamPha" tag={RRNavLink} activeClassName="active-nav-link" >    
+                            <NavLink  exact to="/MoiPhatHanh" tag={RRNavLink} activeClassName="active-nav-link" >    
                                 <i className="fas fa-music" />
                                 <span>Mới Phát Hành</span>
                             </NavLink>

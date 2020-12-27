@@ -1,0 +1,58 @@
+  /////////////////////////////////AudioPlay/////////////////////////////////////////////
+  @keyframes bodyaudio {
+    0% {width: 0px;}
+    100% {width: 300px;}
+  }
+  @keyframes spin2 {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+  .AudioPlay{
+    position: fixed;
+    z-index: 1;
+    left:20%;
+    background-image: url("../../assets/img/night-sky.png");
+    bottom: 0;
+    width: 930px;
+    height: 60px;
+    border-left: none;
+    border-radius: 20px 20px 0 0;
+    img{
+      width: 48px;
+      height: 48px;
+      margin-top: 4px;
+      margin-left: 6px;
+      margin-right: 10px;
+      border-radius: 50%;
+      float: left;
+    }
+    img[spinimg='1']{
+      animation-name: spin2;
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+      animation-timing-function: linear; 
+    }
+    .bodyaudio{
+      width: 650px;
+      overflow: hidden;
+      background-image: url("../../assets/img/night-sky.png");
+      color: white;
+      
+      //background: linear-gradient(45deg, #FF694C 0%, #F15378 30%, #E053D5 40%, #B54BEB 60%, #5B86EE 70%, #00EEEB 100%);
+    }
+    .NameAudio{
+      margin-top: 8px;
+      width: 200px;
+      float: left;
+      marquee{
+        height: 20px;
+        overflow: hidden;
+        text-align: left;
+        font-size: small;
+      }
+    }
+  }

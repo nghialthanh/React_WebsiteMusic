@@ -1,5 +1,6 @@
 import React,{useState,useEffect}from "react";
 import { Link } from "react-router-dom";
+import LoginForm from '../Login/LoginForm';
 import {
     DropdownToggle,
     DropdownMenu,
@@ -7,16 +8,18 @@ import {
     UncontrolledDropdown,
     Navbar,
     NavItem,
-    NavLink,
     Nav,
     InputGroup,
     InputGroupAddon,
     InputGroupText,
-    Input
+    Input,
+    Button
   } from "reactstrap";
 
 function MenuHorizontal() {
     const [_color, _setColor] = useState("navbar-horizonal-background");
+    const [formModal, setFormModal] = useState(false);
+
     useEffect(() => {
         window.addEventListener("scroll", changeColor);
         return function cleanup() {
@@ -45,22 +48,6 @@ function MenuHorizontal() {
                     <Input placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."/>                    
             </InputGroup>       
             <Nav navbar className="navbar-child">    
-                                
-                <NavItem className="p-0">
-                    <NavLink href="#">
-                        <i className="fab fa-twitter" />
-                    </NavLink>
-                </NavItem>
-                <NavItem className="p-0">
-                    <NavLink href="#">
-                        <i className="fab fa-facebook-square" />
-                    </NavLink>
-                </NavItem>
-                <NavItem className="p-0">
-                    <NavLink href="#">
-                        <i className="fab fa-instagram" />
-                    </NavLink>
-                </NavItem>
                 <UncontrolledDropdown nav>
                     <DropdownToggle caret
                         color="default"
@@ -82,20 +69,24 @@ function MenuHorizontal() {
                         </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>
-                {/* <NavItem>
+                <NavItem>
                     <Button
                         className="nav-link d-none d-lg-block"
                         color="primary"
                         href=""
-                    >
-                        <i className="fas fa-music"></i> Đăng Ký Ngay
+                        onClick={() => setFormModal(true)}
+                    > Đăng Nhập
                     </Button>
-                </NavItem> */}
-                <NavItem>
+                </NavItem>
+                {/* <NavItem>
                     <NavLink href="#">
                         <img src={require("../../assets/img/Nghia.jpg").default} alt="avatar"/>
                     </NavLink>
-                </NavItem>
+                </NavItem> */}
+                <LoginForm
+                    setFormModal={setFormModal}
+                    formModal={formModal}
+                />
             </Nav>             
         </Navbar>
     )

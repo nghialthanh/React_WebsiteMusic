@@ -20,7 +20,7 @@ function GalleryImage() {
       <div className="squares square7" /> */}
       
       <Container>
-        <Carousel slides={slides} autoplay={true} interval={100000}/>
+        <Carousel slides={slides} autoplay={true} interval={3000}/>
       </Container>
     </div>
   );

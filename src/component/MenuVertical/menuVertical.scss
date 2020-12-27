@@ -19,7 +19,8 @@ $height-magrin:100px;
 
 .navbar-vertical{
     position: fixed;
-    background-image: url('../../assets/img/background-group-2-1.jpg') !important;
+    overflow: hidden;
+    background-image: url('../../assets/img/night-sky.png') !important;
     align-items: flex-start !important;
     width: $width-navbar;
     height: 100vh;
@@ -34,9 +35,7 @@ $height-magrin:100px;
     }
     .navbar-nav{
         width: 100%;
-        // margin-left: calc(-$width-navbar+$height-magrin);
         .nav-item{
-            //width: calc($width-navbar-10px);
             height: 50px;
             .nav-link{
                 width: 100%;

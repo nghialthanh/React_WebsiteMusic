@@ -14,10 +14,18 @@ import {
 
 import "./Charts.scss";
 import dataAudio from "../dataAudio";
+import { useDispatch } from "react-redux";
+import { setMusictoAudio , setindexMusictoAudio, setshowAudioPlay} from '../../../actions/ListMusic';
 
-function Charts(props) {
+function Charts() {
+    const dispatch = useDispatch();
     const handleSetAudio = (e,index) =>{
-        props.handleSetAudioPlay(e,index);
+        const action3 = setshowAudioPlay(false);
+        const action = setMusictoAudio(e)
+        const action2 = setindexMusictoAudio(index);
+        dispatch(action);
+        dispatch(action2);
+        dispatch(action3)
     }
     const renderTopAudio = () =>{
         return dataAudio.map((e,index) => {
