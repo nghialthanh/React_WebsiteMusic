@@ -31,7 +31,7 @@ function Charts() {
         return dataAudio.map((e,index) => {
             if(index<=2)
                 return (
-                    <Col md="4">
+                    <Col md="4" key={index}>
                         <Card className="card-coin card-plain">
                             <CardHeader>
                                 <img
