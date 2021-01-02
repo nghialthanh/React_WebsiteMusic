@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useRef} from "react";
 import MenuHorizontal from "../MenuHorizontal/MenuHorizontal";
 import Footer from "../HomePage/Footer/Footer";
 import { 
@@ -19,7 +19,6 @@ function NewMusic(props) {
   
 
   useEffect(() => {
-    console.log(11111111111);
     const action = setMusictoAudio(dataAudio);
     dispatch(action);
     if(props.index!==-1)

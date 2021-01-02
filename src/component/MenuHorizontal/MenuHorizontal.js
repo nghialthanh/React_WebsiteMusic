@@ -1,6 +1,6 @@
 import React,{useState,useEffect}from "react";
 import { Link } from "react-router-dom";
-import LoginForm from '../Login/LoginForm';
+import { useDispatch } from "react-redux";
 import {
     DropdownToggle,
     DropdownMenu,
@@ -15,10 +15,12 @@ import {
     Input,
     Button
   } from "reactstrap";
+import { setShowForm } from '../../actions/LoginUser';
+
 
 function MenuHorizontal() {
     const [_color, _setColor] = useState("navbar-horizonal-background");
-    const [formModal, setFormModal] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         window.addEventListener("scroll", changeColor);
@@ -26,6 +28,10 @@ function MenuHorizontal() {
         window.removeEventListener("scroll", changeColor);
         };
     },[]);
+    const handleOpenFormLogin = () => {
+        const action = setShowForm(true);
+        dispatch(action);
+    }
     const changeColor = () => {
         if (
         document.documentElement.scrollTop > 99 ||
@@ -74,7 +80,7 @@ function MenuHorizontal() {
                         className="nav-link d-none d-lg-block"
                         color="primary"
                         href=""
-                        onClick={() => setFormModal(true)}
+                        onClick={() => handleOpenFormLogin()}
                     > Đăng Nhập
                     </Button>
                 </NavItem>
@@ -83,10 +89,7 @@ function MenuHorizontal() {
                         <img src={require("../../assets/img/Nghia.jpg").default} alt="avatar"/>
                     </NavLink>
                 </NavItem> */}
-                <LoginForm
-                    setFormModal={setFormModal}
-                    formModal={formModal}
-                />
+                
             </Nav>             
         </Navbar>
     )

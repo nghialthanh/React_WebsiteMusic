@@ -1,5 +1,10 @@
 import React,{useState}from "react";
 import classnames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 import {
     InputGroup,
     InputGroupAddon,
@@ -11,18 +16,38 @@ import {
     Label,
     Modal
   } from "reactstrap";
+import { setShowForm } from '../../actions/LoginUser';
 
-function FormLogin(props) {
+function FormLogin() {
     const [emailFocus, setEmailFocus] = useState(false);
     const [passwordFocus, setPasswordFocus] = useState(false);
+
+    const dispatch = useDispatch();
+    const formModal = useSelector(state => state.LoginUser.openDialogLogin);
+    const handleOpenFormLogin = (e) => {
+        const action = setShowForm(e);
+        dispatch(action);
+    }
+    // Configure FirebaseUI.
+    // const uiConfig = {
+    //     signInFlow: 'redirect',
+    //     signInSuccessUrl: '/MoiPhatHanh',
+    //     signInOptions: [
+    //         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    //         //firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    //     ],
+    //     callbacks: {
+    //         signInSuccessWithAuthResult: () => false,
+    //     },
+    // }
     return(
         <Modal
             modalClassName="modal-black"
-            isOpen={props.formModal}
-            toggle={() => props.setFormModal(false)}
+            isOpen={formModal}
+            toggle={() => handleOpenFormLogin(false)}
         >
             <div className="modal-header justify-content-center">
-                <button className="close" onClick={() => props.setFormModal(false)}>
+                <button className="close" onClick={() => handleOpenFormLogin(false)}>
                     <i className="fas fa-times"></i>
                 </button>
                 <div className="text-muted text-center ml-auto mr-auto">
@@ -42,6 +67,7 @@ function FormLogin(props) {
                             src={require("../../assets/img/github.svg").default}
                         />
                     </Button>
+                    {/* <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} /> */}
                     <Button
                         className="btn-neutral btn-icon"
                         color="default"

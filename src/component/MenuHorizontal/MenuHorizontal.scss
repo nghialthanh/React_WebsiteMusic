@@ -1,12 +1,13 @@
 .navbar-horizonal{
     position: fixed !important;
     z-index: 100 !important;
-    width: 100%;
+    width: 84vw;
     height: 60px;
     .input-group{
-        margin-left: 100px;
+        ////Respon//
+        margin-left: 9vw;
         padding-top: 10px;
-        width: 550px;  
+        width: 33vw;  
     }
     .input-group-text{
         height: 38px;
@@ -24,7 +25,7 @@
     }
     .navbar-nav{
         position: relative !important;
-        left: 20%;
+        left: 20vw;
         .nav-item{
             img{
                 border-radius: 50%;
